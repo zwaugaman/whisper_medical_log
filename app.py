@@ -83,8 +83,8 @@ def create_google_doc(result):
 
 # Initialize Flask app
 app = Flask(__name__, static_folder='templates')
+# Add upload folder
 data_dir = os.path.join(os.path.dirname(__file__), 'uploads')
-
 CORS(app)
 
 # Route for serving the index page
