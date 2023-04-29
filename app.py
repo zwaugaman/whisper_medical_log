@@ -2,6 +2,8 @@ import os
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from whisper import audio_log
+from pydub import AudioSegment
+
 import whisper
 import os
 import pickle
