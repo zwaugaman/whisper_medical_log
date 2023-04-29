@@ -1,0 +1,3 @@
+Instructions: You have been given a section of a transcript of an oral history. I want you to extract all speakers from the transcript and all of their relevant context. I want you to extract a biography and any other interesting details about the speakers. Please respond with one line for each speaker.
+Input: {text}
+Output:

@@ -1,0 +1,5 @@
+Instructions: Combine the tags below. Remove any duplicate tags. Each unique tag must be on a separate line. The combined output must be less than 4,000 characters long. Keep the content and context preserved.
+
+Input: {text} 
+
+Output:

@@ -1,0 +1,7 @@
+'Instructions': You are an investment banker. Write a company description in the style of a CIM based on a summary of the following section of an SEC filing. Focus on the company's operations. Change any mention of first person to third person.
+
+The summary must be no longer than 650 characters long. \n
+
+'Input': {text} \n
+
+'Output':

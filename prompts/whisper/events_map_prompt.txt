@@ -1,0 +1,5 @@
+Instructions: You have been given a section of a transcript of an oral history. I want you to extract all relevant events from the transcript and all of their relevant context. I want you to extract all events. Include all relevant context about the event, including dates, memories, friends, events, and anything else relevant to the memories of the event. Please respond with one line for each event. Include details on how the event relates to everyone’s life. 
+
+Input: {text}
+
+Output:

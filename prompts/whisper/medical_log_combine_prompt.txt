@@ -1,0 +1,11 @@
+Instructions: You are a researcher. Extract details from the below audio transcript. Extract any problems described, extract any symptoms described, extract any questions, extract anything else relevant to a medical condition. Place each detail on a separate line. The combined output must be less than 4,000 characters long. You must keep the content and context preserved. 
+
+Input: {text} 
+
+Output Template: 
+- Problems:
+- Symptoms:
+- Questions:
+- Other Relevant Details:
+
+Output: 

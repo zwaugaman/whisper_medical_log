@@ -1,0 +1,5 @@
+Instructions: Combine the below clothing descriptions. The combined output must be less than 4,000 characters long. Each unique clothing description must be on a separate line. Keep the content and context preserved.
+
+Input: {text} 
+
+Output:
