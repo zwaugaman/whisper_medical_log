@@ -86,7 +86,7 @@ def create_google_doc(result):
 # Initialize Flask app
 app = Flask(__name__, static_folder='templates')
 # Add upload folder
-data_dir = os.path.join(os.path.dirname(__file__), 'uploads')
+data_dir = os.path.join(os.path.dirname(__file__), 'templates')
 CORS(app)
 
 # Route for serving the index page
@@ -97,7 +97,7 @@ def index():
 # Route for handling file upload and processing
 @app.route('/upload', methods=['POST'])
 def upload():
-    audio_file = request.files['audio'].read()
+    #audio_file = request.files['audio'].read()
     audio_file = AudioSegment.from_file(request.files['audio'])
     ## Convert file audio to mp3 format
     audio_file.export(os.path.join(data_dir, 'converted.mp3'), format="mp3")
