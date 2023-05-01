@@ -5,6 +5,7 @@ from whisper import audio_log
 from pydub import AudioSegment
 import time
 from datetime import datetime
+import pytz
 
 import whisper
 import os
@@ -27,6 +28,9 @@ DOCUMENT_ID = '11NCLCwpi2vlpksIQJIQ3222gRlxfa_BtryAXnhO6xEM'
 BASE_URL = "https://docs.google.com/document/d/"
 url = f"{BASE_URL}{DOCUMENT_ID}"
 
+def convert_timezone(dt, to_tz):
+    to_tz = pytz.timezone(to_tz)
+    return dt.astimezone(to_tz)
 
 print(url)
 def create_google_doc(text):
@@ -85,7 +89,14 @@ app = Flask(__name__, static_folder='templates')
 # Add upload folder
 data_dir = os.path.join(os.path.dirname(__file__), 'templates')
 CORS(app)
-convertion_name = "Voice of " + datetime.now().strftime("%Y_%m_%d-%I_%M_%S_%p")
+# Replace these with your desired timezones
+from_timezone = "UTC"
+to_timezone = "America/Los_Angeles"
+
+now = datetime.now(pytz.timezone(from_timezone))
+converted_now = convert_timezone(now, to_timezone)
+conversion_name = "Recorded on " + converted_now.strftime("%m/%d/%Y    %I:%M %p")
+
 
 # Route for serving the index page
 @app.route('/')
@@ -101,9 +112,9 @@ def upload():
     audio =open(os.path.join(data_dir, 'converted.mp3'), 'rb')
     audio_data = audio.read()
     result = audio_log(audio_data)
-    result_text = f"{convertion_name} \n \n \n {result}. \n \n \n"
+    result_text = f"{conversion_name} \n \n \n {result}. \n \n \n"
     create_google_doc(result_text)
-    return jsonify({"result": url})
+    return jsonify({"result": result_text})
 
 # Run the Flask app
 if __name__ == '__main__':
