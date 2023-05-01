@@ -23,7 +23,7 @@ CREDENTIALS_FILE = 'token.pickle'
 
 
 # The ID of a sample document.
-DOCUMENT_ID = '14jdNTRO0H9fPL21VkELyTzoSQE3ZpwXuYe09E9rDumE'
+DOCUMENT_ID = '11NCLCwpi2vlpksIQJIQ3222gRlxfa_BtryAXnhO6xEM'
 BASE_URL = "https://docs.google.com/document/d/"
 url = f"{BASE_URL}{DOCUMENT_ID}"
 

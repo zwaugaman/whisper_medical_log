@@ -16,12 +16,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2    
-      - name: Create token.json file
+      - name: Create credentials.json file
         id: create-json
         uses: jsdaniell/create-json@v1.2.2
         with:
           name: "credentials.json"
-          json: ${{ secrets.GOOGLE_CREDENTIALS }}
+          json: ${{ secrets.GOOGLE_CREDENTIALS }} 
+      - name: Create token.json file
+        id: token-json
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: "token.json"
+          json: ${{ secrets.TOKEN }}
       - name: Set up Python version
         uses: actions/setup-python@v1
         with:
