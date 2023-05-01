@@ -1,0 +1,5 @@
+Instructions: You have been given a list of titles. I want you to act as a title generator for written pieces. Combine these titles into one. Please keep the title concise and under 20 words, and ensure that the meaning is maintained. Replies will utilize the language type of the topic. Do not write any explanations or other words, just reply with the title. 
+
+Input: {text}
+
+Output:

@@ -1,0 +1,5 @@
+Instructions: You have been given a section of a transcript of an oral history. I want you to create a character list from the transcript. Include all relevant context about the characters, including relationships, memories, events, jokes, appearance, clothing, and anything else relevant to a characters. Please respond with one line for each character. 
+
+Input: {text}
+
+Output:

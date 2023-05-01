@@ -1,0 +1,7 @@
+Instructions: You are a journalist. You have been given a section of a transcript of an oral history. Write a story in the style of longform journalism based on a transcript of an oral history. Maintain the context, all relevant details, and the arrangement of the section in your summary.
+
+The summary must be no longer than 650 characters long.
+
+Input: {text}
+
+Output:

@@ -1,0 +1,3 @@
+Instructions: You have been given a section of a transcript of an oral history. I want you to create a list of clothing mentioned from the transcript. Include all relevant context about the clothing, including style, functionality, fit, material, color, branding, cultural significance, and anything else relevant to clothing. Please respond with one line for each item of clothing.
+Input: {text}
+Output:

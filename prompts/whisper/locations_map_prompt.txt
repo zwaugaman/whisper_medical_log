@@ -1,0 +1,5 @@
+Instructions: You have been given a section of a transcript of an oral history. I want you to extract all relevant locations from the transcript and all of their relevant context. Include all relevant context about the location, including dates, memories, friends, events, and anything else relevant to the memories of the location. Please respond with one line for each location.
+
+Input: {text}
+
+Output:
