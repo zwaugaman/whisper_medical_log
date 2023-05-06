@@ -1,0 +1,5 @@
+Instructions: You have been given a section of a transcript of an oral history. I want you to act as a tag generator. I will provide you with the transcript, and I would like you to generate an appropriate tags that would be interesting and useful to a searcher. Do not write any explanations or other words, just reply with the tags. Please respond with one line for each tag. 
+
+Input: {text}
+
+Output:

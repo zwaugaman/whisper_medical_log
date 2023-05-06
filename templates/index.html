@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Recorder</title>
+  </head>
+  <body>
+    <h1>Audio Recorder</h1>
+    <button id="recordBtn">Start Recording</button>
+    <div>
+      <h2>Result</h2>
+      <textarea
+        id="resultText"
+        readonly
+        style="width: 100%; height: 200px"
+        placeholder="Output Template: 
+- Date:
+- Sleep Time:
+- Sleep Quality:
+- Medication:
+- Anxiety:
+- Problems:
+- Symptoms:
+- Questions:
+- Other Relevant Details:"
+      ></textarea>
+      <button id="copyBtn">Copy Text</button>
+    </div>
+    <script>
+      const recordBtn = document.getElementById("recordBtn");
+      const copyBtn = document.getElementById("copyBtn");
+      const resultText = document.getElementById("resultText");
+      let mediaRecorder;
+      let chunks = [];
+
+      async function startRecording() {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            audio: true,
+          });
+          mediaRecorder = new MediaRecorder(stream);
+          mediaRecorder.start();
+
+          mediaRecorder.ondataavailable = (e) => {
+            chunks.push(e.data);
+          };
+
+          mediaRecorder.onstop = async () => {
+            const audioBlob = new Blob(chunks, { type: "audio/webm" });
+            chunks = [];
+
+            const formData = new FormData();
+            formData.append("audio", audioBlob);
+
+            const response = await fetch("/upload", {
+              method: "POST",
+              body: formData,
+            });
+
+            const result = await response.json();
+            window.location.replace(
+              "https://docs.google.com/document/d/11NCLCwpi2vlpksIQJIQ3222gRlxfa_BtryAXnhO6xEM"
+            );
+            resultText.value = result.result;
+          };
+
+          recordBtn.textContent = "Stop Recording";
+          recordBtn.onclick = stopRecording;
+        } catch (err) {
+          console.error(err);
+        }
+      }
+
+      function stopRecording() {
+        mediaRecorder.stop();
+        recordBtn.textContent = "Start Recording";
+        recordBtn.onclick = startRecording;
+      }
+
+      // Add the following function
+      function copyText() {
+        resultText.select();
+        document.execCommand("copy");
+        alert("Text copied to clipboard");
+      }
+
+      recordBtn.onclick = startRecording;
+      copyBtn.onclick = copyText;
+    </script>
+  </body>
+</html>

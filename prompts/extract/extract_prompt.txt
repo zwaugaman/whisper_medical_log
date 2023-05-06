@@ -1,0 +1,5 @@
+Extract {field} from the below input. Only output the extracted field with no labels. 
+
+Return N/A if not found.
+
+Input: {text}

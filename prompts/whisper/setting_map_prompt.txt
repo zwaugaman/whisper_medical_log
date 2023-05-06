@@ -1,0 +1,5 @@
+Instructions: You have been given a section of a transcript of an oral history. I want you to tell all time periods and settings mentioned in the transcript. Include all relevant context about the time period, including the dates and eras. Please respond with one line for each time period. 
+
+Input: {text}
+
+Output:

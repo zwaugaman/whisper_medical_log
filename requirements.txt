@@ -1,0 +1,14 @@
+langchain==0.0.102
+openai==0.27.0
+tiktoken
+pydub
+transformers
+Flask
+flask-cors
+gunicorn
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-auth-oauthlib
+google-api-python-client
+pytz

@@ -1,0 +1,5 @@
+Instructions: You have been given a section of a transcript of an oral history. I want you to act as a title generator for written pieces. Please keep the title concise and under 20 words, and ensure that the meaning is maintained. Replies will utilize the language type of the topic. Extract the date as well. Do not write any explanations or other words, just reply with the title and date. 
+
+Input: {text}
+
+Output:

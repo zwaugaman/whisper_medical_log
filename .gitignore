@@ -1,0 +1,6 @@
+.env
+gtp3_logs/
+node_modules/
+test.py/
+credentials.json
+token.json
