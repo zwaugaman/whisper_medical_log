@@ -12,11 +12,7 @@ jobs:
         shell: bash
         run: |
           touch credentials.json
-          echo ${{ secrets.GOOGLE_CREDENTIALS }} >> credentials.json
-          cat credentials.json
           touch token.json
-          echo ${{ secrets.TOKEN }} >> token.json
-          cat token.json
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
@@ -32,4 +28,3 @@ jobs:
         with:
           push: true
           tags: medicallogregistry.azurecr.io/medicallogregistry:latest
-
