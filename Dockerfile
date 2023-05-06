@@ -2,6 +2,10 @@ FROM python:3.8
 
 WORKDIR /python-docker
 
+## CREATE CREDENTIALS file
+RUN touch credentials.json
+RUN touch token.json
+
 # ## update packages && add ffmpeg package
 # RUN apk add py-pip python3-dev libffi-dev openssl-dev gcc libc-dev make curl g++
 # RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
