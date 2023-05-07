@@ -1,7 +1,7 @@
 name: Push Docker Image To Azure Container
 on:
   push:
-    branches: ["main"]
+    branches: ["mains"]
 
 jobs:
   test:
