@@ -7,7 +7,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: create json file
+        uses: actions/checkout@v3
+      - shell: bash
+        run: |
+          echo "${{ secrets.GOOGLE_CREDENTIALS }}" >> credentials.json
+          echo "${{ secrets.TOKEN }}" >> token.json
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
