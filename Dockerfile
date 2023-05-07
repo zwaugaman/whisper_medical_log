@@ -19,13 +19,17 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt 
 COPY . .
 
-## ADD SSH PACKAGES
-RUN apk add nano && apk --no-install-recommends dialog && apk add --no-install-recommends openssh-server
-RUN echo "root:Docker!" | chpasswd
-RUN chmod u+x ./entrypoint.sh
+## COPY SSH CONFIG
 COPY sshd_config /etc/ssh/
+COPY entrypoint.sh ./
 
-## OPEN SSH PORT AND FLASK PORT
+# Start and enable SSH
+RUN apk add openssh
+RUN echo "root:Docker!" | chpasswd
+RUN chmod +x ./entrypoint.sh
+RUN cd /etc/ssh/
+RUN ssh-keygen -A
+
 EXPOSE 8000 2222
 
 ENTRYPOINT [ "./entrypoint.sh" ]
