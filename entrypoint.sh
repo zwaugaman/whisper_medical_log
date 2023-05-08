@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
-/usr/sbin/sshd
+service ssh start
 exec gunicorn -w 4 -b 0.0.0.0:8000 wsgi:app
