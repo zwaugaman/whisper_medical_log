@@ -1,0 +1,30 @@
+name: Push Docker Image To Azure Container
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create json file
+        uses: actions/checkout@v3
+      - shell: bash
+        run: |
+          echo "${{ secrets.GOOGLE_CREDENTIALS }}" >> credentials.json
+          echo "${{ secrets.TOKEN }}" >> token.json
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to Azure Contaiern Registry
+        uses: docker/login-action@v2
+        with:
+          registry: medicallogregistry.azurecr.io
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: medicallogregistry.azurecr.io/medicallogregistry:latest
