@@ -6,6 +6,7 @@ from langchain.chains.summarize import _load_map_reduce_chain
 import time
 import concurrent.futures
 from langchain.callbacks import get_openai_callback
+from langchain.chat_models import ChatOpenAI
 
 def open_file(filepath):
         with open(filepath, 'r', encoding='utf-8') as infile:
@@ -118,14 +119,14 @@ def combine_prompt(prompt_template = open_file('prompts/map_reduce/combine_promp
 
 def summarize_script_map_reduce(script, completions_model, OpenAI_api_key, map= map_prompt(), combine= combine_prompt(), run_limit= 3):
     if completions_model == "gpt-3.5-turbo":
-        llm = OpenAIChat(
+        llm = ChatOpenAI(
             temperature=configs_map_reduce[completions_model]["temperature"], 
             model_name=configs_map_reduce[completions_model]["model_name"], 
             openai_api_key=OpenAI_api_key,
             max_tokens=configs_map_reduce[completions_model]["token_sizing_output"],
         )
 
-        llm_combine = OpenAIChat(
+        llm_combine = ChatOpenAI(
             temperature=configs_map_reduce[completions_model]["temperature"], 
             model_name=configs_map_reduce[completions_model]["model_name"], 
             openai_api_key=OpenAI_api_key,
@@ -186,14 +187,14 @@ def summarize_script_map_reduce(script, completions_model, OpenAI_api_key, map= 
 
 def summarize_script_map(script, completions_model, OpenAI_api_key, map= map_prompt(), combine= combine_prompt(), temperature=0, run_limit= 3):
     if completions_model == "gpt-3.5-turbo":
-        llm = OpenAIChat(
+        llm = ChatOpenAI(
             temperature=temperature, 
             model_name=configs_map_reduce[completions_model]["model_name"], 
             openai_api_key=OpenAI_api_key,
             max_tokens=configs_map_reduce[completions_model]["token_sizing_output"],
         )
     else:
-        llm = OpenAI(
+        llm = ChatOpenAI(
             temperature=temperature, 
             model_name=configs_map_reduce[completions_model]["model_name"], 
             openai_api_key=OpenAI_api_key,
